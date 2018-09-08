@@ -7,4 +7,14 @@ export default class Store {
     constructor() {
         this.apartments = new Apartments();
     }
+
+    serialize() {
+        return {
+            items: this.apartments.items,
+        };
+    }
+
+    deserialize(data) {
+        this.apartments.items = data.items;
+    }
 }

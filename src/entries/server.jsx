@@ -21,7 +21,7 @@ app.use(serve(PUBLIC_ROOT));
 app.use(async ctx => {
     const store = new Store();
     const document = (
-        <Document>
+        <Document store={store}>
             <Page store={store}/>
         </Document>
     );

@@ -20,7 +20,7 @@ class Apartment extends React.Component {
     };
 
     toggleItem = e => {
-        e.stopPropagation();
+        e.preventDefault();
 
         this.setState(prevState => ({
             seen: !prevState.seen,

@@ -8,6 +8,10 @@ import 'antd/lib/button/style';
 
 const store = new Store();
 
+if (window.STORE_DATA) {
+    store.deserialize(window.STORE_DATA);
+}
+
 ReactDOM.render(
     <Page store={store}/>,
     document.getElementById('root'),

@@ -10,7 +10,9 @@ class Apartments extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchData();
+        if (this.props.apartments.items.length === 0) {
+            this.fetchData();
+        }
     }
 
     render() {
