@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
@@ -78,6 +79,7 @@ const clientConfig = {
 
 const serverConfig = {
     ...sharedConfig,
+    devtool: false,
     target: 'node',
     externals: [nodeExternals()],
     entry: path.resolve(ROOT, 'src/entries/server.jsx'),
@@ -114,6 +116,11 @@ const serverConfig = {
             ...sharedModuleRules
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            PUBLIC_ROOT: JSON.stringify(path.resolve(ROOT, 'public'))
+        }),
+    ]
 };
 
 module.exports = [ clientConfig, serverConfig ];

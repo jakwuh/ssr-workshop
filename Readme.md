@@ -24,6 +24,7 @@
 2.1. `Critical dependency: the request of a dependency is an expression`  
 2.2. `ReferenceError: regeneratorRuntime is not defined`  
 2.3. Render empty document
+2.4. Serve statics
 
 ## Additional
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)  
