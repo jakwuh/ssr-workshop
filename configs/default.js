@@ -2,15 +2,10 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 
-module.exports = {
-    entry: path.resolve(ROOT, 'src/entries/client.jsx'),
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(ROOT, 'public')
-    },
+const sharedConfig = {
     mode: 'development',
     resolve: {
-      extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
     },
     module: {
         rules: [
@@ -64,16 +59,26 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        contentBase: path.join(ROOT, 'public'),
-        compress: true,
-        port: 10001,
-        proxy: {
-            '/search/apartments': {
-                target: 'https://ak.api.onliner.by',
-                secure: false,
-                changeOrigin: true,
-            },
-        },
-    }
 };
+
+const clientConfig = {
+    ...sharedConfig,
+    target: 'web',
+    entry: path.resolve(ROOT, 'src/entries/client.jsx'),
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(ROOT, 'public')
+    },
+};
+
+const serverConfig = {
+    ...sharedConfig,
+    target: 'node',
+    entry: path.resolve(ROOT, 'src/entries/server.jsx'),
+    output: {
+        filename: 'server.js',
+        path: path.resolve(ROOT, 'dist')
+    },
+};
+
+module.exports = [ clientConfig, serverConfig ];

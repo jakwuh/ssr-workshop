@@ -7,7 +7,7 @@
   "author": "jakwuh <jakwuh@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./configs/default.js"
+    "start": "webpack -w --config ./configs/default.js"
   },
   "dependencies": {
     "antd": "^3.9.0",
@@ -27,13 +27,14 @@
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@types/koa": "^2.0.46",
     "babel-loader": "^8.0.1",
     "css-loader": "^1.0.0",
+    "koa": "^2.5.2",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.7"
+    "webpack-cli": "^3.1.0"
   }
 }

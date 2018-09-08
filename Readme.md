@@ -19,4 +19,5 @@
 
 ## Steps
 
-1. Simple SPA application 
+1. Simple SPA application   
+2. Simple SSR application
