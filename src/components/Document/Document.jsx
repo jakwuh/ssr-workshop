@@ -1,4 +1,5 @@
 import React from 'react';
+import serialize from 'serialize-javascript';
 
 const style = `
 body {
@@ -19,7 +20,7 @@ export default ({ children, store }) => <>
     </head>
     <body>
     <div id="root">{children}</div>
-    <script dangerouslySetInnerHTML={{ __html: `window.STORE_DATA = ${JSON.stringify(store.serialize())};` }} />
+    <script dangerouslySetInnerHTML={{ __html: `window.STORE_DATA = ${serialize(store.serialize())};` }} />
     <script src='/bundle.js'/>
     </body>
     </html>
