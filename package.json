@@ -1,0 +1,39 @@
+{
+  "name": "ssr-workshop",
+  "version": "1.0.0",
+  "description": "SSR workshop source code",
+  "main": "index.js",
+  "repository": "https://github.com/jakwuh/ssr-workshop",
+  "author": "jakwuh <jakwuh@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config ./configs/default.js"
+  },
+  "dependencies": {
+    "antd": "^3.9.0",
+    "axios": "^0.18.0",
+    "camelcase-keys": "^4.2.0",
+    "date-fns": "^1.29.0",
+    "lodash": "^4.17.10",
+    "mobx": "^5.1.0",
+    "mobx-react": "^5.2.5",
+    "qs": "^6.5.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.1",
+    "css-loader": "^1.0.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  }
+}
