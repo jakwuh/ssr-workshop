@@ -15,11 +15,7 @@ const fetchApartments = (page) => api.fetchApartments({
 export default class Apartments {
     @observable items = [];
 
-    constructor() {
-        this.fetchApartments();
-    }
-
-    fetchApartments() {
+    fetch() {
         const items = [];
 
         const fetch = (page) => {
@@ -32,7 +28,7 @@ export default class Apartments {
             })
         };
 
-       fetch().then(() => {
+       return fetch().then(() => {
            this.items = items;
        }).catch(console.error);
     }
