@@ -33,6 +33,7 @@
 2.10. Extract styles into separate file
 2.11. Pass store data from server to client side
 2.12. Avoid XSS
+2.13. `render` ⇒ `hydrate`
 
 ## Additional
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)  

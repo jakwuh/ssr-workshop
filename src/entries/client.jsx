@@ -12,7 +12,7 @@ if (window.STORE_DATA) {
     store.deserialize(window.STORE_DATA);
 }
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <Page store={store}/>,
     document.getElementById('root'),
 );

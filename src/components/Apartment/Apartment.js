@@ -10,13 +10,13 @@ const getContent = (item) =>
         <p>Цена: ${parseInt(item.price.converted.usd.amount)} / мес.</p>
         <p>{item.contact.owner ? 'Собственник' : 'Агентство'}</p>
         <p>Тип: {getFlatType(item)}</p>
-        <p>Обновлено: {getLastUpdated(item)}</p>
+        <p suppressHydrationWarning>Обновлено: {getLastUpdated(item)}</p>
         <p>Адрес: {item.location.address}</p>
     </>;
 
 class Apartment extends React.Component {
     state = {
-        seen: IS_SERVER ? false : Boolean(localStorage.getItem(this.props.item.id)),
+        seen: false,
     };
 
     toggleItem = e => {
@@ -28,6 +28,10 @@ class Apartment extends React.Component {
     };
 
     componentDidMount() {
+        this.setState({
+            seen: Boolean(localStorage.getItem(this.props.item.id)),
+        });
+
         this.interval = setInterval(() => this.forceUpdate(), 30000);
     }
 
