@@ -21,8 +21,10 @@
 
 1. Simple SPA application   
 2. Simple SSR application  
-2.1. `Critical dependency: the request of a dependency is an expression`
+2.1. `Critical dependency: the request of a dependency is an expression`    
+2.2. `ReferenceError: regeneratorRuntime is not defined`
 
 ## Additional
 
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)
+2.2 [webpack `node` configuration size comparison](https://gist.github.com/jakwuh/cb157f8dd5739006737e897e28b29707) 
