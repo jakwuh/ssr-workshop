@@ -5,8 +5,12 @@ import * as styles from './Apartments.less';
 
 @observer
 class Apartments extends React.Component {
+    fetchData() {
+        return this.props.apartments.fetch();
+    }
+
     componentDidMount() {
-        this.props.apartments.fetch();
+        this.fetchData();
     }
 
     render() {

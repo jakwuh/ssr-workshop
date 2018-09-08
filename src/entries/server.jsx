@@ -5,13 +5,14 @@ import proxy from 'koa-proxies';
 import Document from '../components/Document/Document';
 import { renderToString } from 'react-dom/server';
 import Page from '../components/Page/Page';
+import fetchDataFromTree from '../helpers/getDataFromTree';
 import Store from '../models/Store';
 
 const docType = '<!doctype html>';
 const app = new Koa();
 
 app.use(proxy('/search/apartments', {
-    target: 'https://ak.api.onliner.by',
+    target: ONLINER_API_BASE_URL,
     changeOrigin: true,
 }));
 
@@ -24,6 +25,9 @@ app.use(async ctx => {
             <Page store={store}/>
         </Document>
     );
+
+    await fetchDataFromTree(document);
+
     ctx.body = `${docType}${renderToString(document)}`;
 });
 

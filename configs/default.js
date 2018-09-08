@@ -71,6 +71,12 @@ const clientConfig = {
             }
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            ONLINER_API_BASE_URL: JSON.stringify('/'),
+            IS_SERVER: JSON.stringify(false),
+        }),
+    ]
 };
 
 const serverConfig = {
@@ -122,7 +128,9 @@ const serverConfig = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            PUBLIC_ROOT: JSON.stringify(path.resolve(ROOT, 'public'))
+            PUBLIC_ROOT: JSON.stringify(path.resolve(ROOT, 'public')),
+            ONLINER_API_BASE_URL: JSON.stringify('https://ak.api.onliner.by'),
+            IS_SERVER: JSON.stringify(true),
         }),
     ]
 };

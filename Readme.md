@@ -28,7 +28,8 @@
 2.5. Proxy API  
 2.6. Watching for changes on server side  
 2.7. Fetch data only on client side  
-2.8. Render document without fetching data
+2.8. Render document without fetching data  
+2.9. Render document with fetched data
 
 ## Additional
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)  

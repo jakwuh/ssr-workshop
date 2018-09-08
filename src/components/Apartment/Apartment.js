@@ -16,7 +16,7 @@ const getContent = (item) =>
 
 class Apartment extends React.Component {
     state = {
-        seen: Boolean(localStorage.getItem(this.props.item.id)),
+        seen: IS_SERVER ? false : Boolean(localStorage.getItem(this.props.item.id)),
     };
 
     toggleItem = e => {
@@ -26,8 +26,6 @@ class Apartment extends React.Component {
             seen: !prevState.seen,
         }));
     };
-
-    open = () => window.open(this.props.item.url);
 
     componentDidMount() {
         this.interval = setInterval(() => this.forceUpdate(), 30000);
@@ -48,10 +46,9 @@ class Apartment extends React.Component {
         const title = this.state.seen ? 'Вернуть' : 'Просмотрено';
 
         return (
-            <div className={styles.card}>
+            <a target="_blank" rel="noopener" href={this.props.item.url} className={styles.card}>
                 <Card
                     style={style}
-                    onClick={this.open}
                     hoverable
                     cover={<img className={styles.img} src={item.photo} alt={item.location.address}/>}
                     bordered={false}
@@ -61,7 +58,7 @@ class Apartment extends React.Component {
                 >
                     {getContent(item)}
                 </Card>
-            </div>
+            </a>
         );
     }
 
