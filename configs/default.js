@@ -1,4 +1,5 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -74,6 +75,7 @@ const clientConfig = {
 const serverConfig = {
     ...sharedConfig,
     target: 'node',
+    externals: [nodeExternals()],
     entry: path.resolve(ROOT, 'src/entries/server.jsx'),
     output: {
         filename: 'server.js',

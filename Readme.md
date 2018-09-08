@@ -20,4 +20,9 @@
 ## Steps
 
 1. Simple SPA application   
-2. Simple SSR application
+2. Simple SSR application  
+2.1. `Critical dependency: the request of a dependency is an expression`
+
+## Additional
+
+2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)
