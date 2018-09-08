@@ -8,7 +8,7 @@ body {
 }
 `;
 
-export default () => <>
+export default ({ children }) => <>
     <html>
     <head lang='en'>
         <meta charSet='utf-8'/>
@@ -17,7 +17,7 @@ export default () => <>
         <style dangerouslySetInnerHTML={{ __html: style }} />
     </head>
     <body>
-    <div id="root"/>
+    <div id="root">{children}</div>
     <script src='/bundle.js'/>
     </body>
     </html>

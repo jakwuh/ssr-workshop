@@ -4,40 +4,6 @@ const nodeExternals = require('webpack-node-externals');
 
 const ROOT = path.resolve(__dirname, '..');
 
-const sharedModuleRules = [
-    {
-        test: /\.less$/,
-        include: /node_modules/,
-        use: [{
-            loader: 'style-loader'
-        }, {
-            loader: 'css-loader'
-        }, {
-            loader: 'less-loader',
-            options: {
-                javascriptEnabled: true
-            }
-        }]
-    },
-    {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: [{
-            loader: 'style-loader'
-        }, {
-            loader: 'css-loader',
-            options: {
-                modules: true,
-            },
-        }, {
-            loader: 'less-loader',
-            options: {
-                javascriptEnabled: true
-            }
-        }]
-    }
-];
-
 const sharedConfig = {
     mode: 'development',
     resolve: {
@@ -72,7 +38,37 @@ const clientConfig = {
                     }
                 }
             },
-            ...sharedModuleRules
+            {
+                test: /\.less$/,
+                include: /node_modules/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'less-loader',
+                    options: {
+                        javascriptEnabled: true
+                    }
+                }]
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                    },
+                }, {
+                    loader: 'less-loader',
+                    options: {
+                        javascriptEnabled: true
+                    }
+                }]
+            }
         ]
     },
 };
@@ -113,7 +109,15 @@ const serverConfig = {
                     }
                 }
             },
-            ...sharedModuleRules
+            {
+                test: /\.less/,
+                use: [{
+                    loader: 'css-loader/locals',
+                    options: {
+                        modules: true,
+                    },
+                }]
+            },
         ]
     },
     plugins: [
