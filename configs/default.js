@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -42,7 +43,7 @@ const clientConfig = {
                 test: /\.less$/,
                 include: /node_modules/,
                 use: [{
-                    loader: 'style-loader'
+                    loader: MiniCssExtractPlugin.loader,
                 }, {
                     loader: 'css-loader'
                 }, {
@@ -56,7 +57,7 @@ const clientConfig = {
                 test: /\.less$/,
                 exclude: /node_modules/,
                 use: [{
-                    loader: 'style-loader'
+                    loader: MiniCssExtractPlugin.loader,
                 }, {
                     loader: 'css-loader',
                     options: {
@@ -72,6 +73,9 @@ const clientConfig = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: "styles.css",
+        }),
         new webpack.DefinePlugin({
             ONLINER_API_BASE_URL: JSON.stringify('/'),
             IS_SERVER: JSON.stringify(false),

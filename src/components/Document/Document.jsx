@@ -15,6 +15,7 @@ export default ({ children }) => <>
         <meta name='viewport' content='width=device-width'/>
         <title>SSR Workshop</title>
         <style dangerouslySetInnerHTML={{ __html: style }} />
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
     <div id="root">{children}</div>
