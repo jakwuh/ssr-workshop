@@ -26,6 +26,7 @@
 2.3. Render empty document
 2.4. Serve statics
 2.5. Proxy API
+2.6. Watching for changes on server side
 
 ## Additional
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)  
