@@ -11,12 +11,19 @@ class DocumentStream extends Readable {
 
         this.push(docType);
 
-        fetchDataFromTree(document).then(() => {
+        fetchDataFromTree(document).then(() => new Promise((resolve, reject) => {
             const stream = renderToNodeStream(document);
 
             stream.on('data', chunk => this.push(chunk));
-            stream.on('end', () => this.push(null));
-        });
+            stream.on('end', resolve);
+            stream.on('error', reject);
+        })).then(
+            () => {
+                this.push(null);
+            }, () => {
+                this.push('<script src="/save-me.js"></script>');
+                this.push(null);
+            });
     }
 
     _read () {

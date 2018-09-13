@@ -3,5 +3,6 @@ node_modules
 public/*
 !public/index.html
 !public/styles.css
+!public/save-me.js
 yarn-error.log
 dist/
