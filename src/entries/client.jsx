@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 import Page from '../components/Page/Page';
 import Store from '../models/Store';
 
@@ -13,6 +14,8 @@ if (window.STORE_DATA) {
 }
 
 ReactDOM.hydrate(
-    <Page store={store}/>,
+    <BrowserRouter>
+        <Page store={store}/>
+    </BrowserRouter>,
     document.getElementById('root'),
 );

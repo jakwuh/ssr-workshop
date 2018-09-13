@@ -1,4 +1,5 @@
 import React from 'react';
+import { StaticRouter } from 'react-router'
 import Koa from 'koa';
 import serve from 'koa-static';
 import proxy from 'koa-proxies';
@@ -22,7 +23,9 @@ app.use(async ctx => {
     const store = new Store();
     const document = (
         <Document store={store}>
-            <Page store={store}/>
+            <StaticRouter location={ctx.request.url} context={{}}>
+                <Page store={store}/>
+            </StaticRouter>
         </Document>
     );
 
