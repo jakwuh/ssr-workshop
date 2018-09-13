@@ -4,12 +4,10 @@ import Koa from 'koa';
 import serve from 'koa-static';
 import proxy from 'koa-proxies';
 import Document from '../components/Document/Document';
-import { renderToString } from 'react-dom/server';
+import DocumentStream from '../components/Document/DocumentStream';
 import Page from '../components/Page/Page';
-import fetchDataFromTree from '../helpers/getDataFromTree';
 import Store from '../models/Store';
 
-const docType = '<!doctype html>';
 const app = new Koa();
 
 app.use(proxy('/search/apartments', {
@@ -19,7 +17,7 @@ app.use(proxy('/search/apartments', {
 
 app.use(serve(PUBLIC_ROOT));
 
-app.use(async ctx => {
+app.use(ctx => {
     const store = new Store();
     const document = (
         <Document store={store}>
@@ -29,9 +27,10 @@ app.use(async ctx => {
         </Document>
     );
 
-    await fetchDataFromTree(document);
+    const stream = new DocumentStream(document);
 
-    ctx.body = `${docType}${renderToString(document)}`;
+    ctx.type = 'html';
+    ctx.body = stream;
 });
 
 app.listen(3000);

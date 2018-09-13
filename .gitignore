@@ -2,5 +2,6 @@
 node_modules
 public/*
 !public/index.html
+!public/styles.css
 yarn-error.log
 dist/

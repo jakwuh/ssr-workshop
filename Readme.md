@@ -34,7 +34,8 @@
 2.11. Pass store data from server to client side  
 2.12. Avoid XSS  
 2.13. `render` ⇒ `hydrate`  
-2.14. `react-router`
+2.14. `react-router`  
+2.15. Simple SSR
 
 ## Additional
 2.1 [SSR Workshop build time comparison](https://gist.github.com/jakwuh/6638344023ea17a1863a899dacdf686c)  
